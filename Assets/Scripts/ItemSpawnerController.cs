@@ -8,11 +8,16 @@ public class ItemSpawnerController : MonoBehaviour
     private GameObject[] Items = { };
     [SerializeField]
     private float YPositionMultiplier = 0f;
-    private float CurrentlyYPosition = 6f;
+    private float CurrentlyYPosition = 3f;
     [SerializeField]
     private float SpawnCooldown = 0f;
     private float SpawnCooldownTimeLeft = 0f;
 
+    private void Start()
+    {
+        for (int i = 0; i < 4; i++)
+            SpawnItem();
+    }
     void Update()
     {
         SpawnCooldownTimeLeft -= Time.deltaTime;

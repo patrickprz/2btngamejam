@@ -10,7 +10,22 @@ PrefabInstance:
     - target: {fileID: 709008053636955793, guid: fe2725f41bc0bc147b3ab4212130b9bb,
         type: 3}
       propertyPath: m_Name
-      value: ItemBase000
+      value: Item000
+      objectReference: {fileID: 0}
+    - target: {fileID: 709008053636955793, guid: fe2725f41bc0bc147b3ab4212130b9bb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5321651685696208288, guid: fe2725f41bc0bc147b3ab4212130b9bb,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5321651685696208288, guid: fe2725f41bc0bc147b3ab4212130b9bb,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 6713778046579361326, guid: fe2725f41bc0bc147b3ab4212130b9bb,
         type: 3}
@@ -76,16 +91,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5321651685696208288, guid: fe2725f41bc0bc147b3ab4212130b9bb,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 5321651685696208288, guid: fe2725f41bc0bc147b3ab4212130b9bb,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe2725f41bc0bc147b3ab4212130b9bb, type: 3}
