@@ -55,5 +55,6 @@ public class CharacterController : MonoBehaviour
     void Run()
     {
         transform.Translate(new Vector3(0, 1, 0) * Speed * Time.deltaTime);
+        this.GetComponent<Animator>().speed = Speed;
     }
 }
