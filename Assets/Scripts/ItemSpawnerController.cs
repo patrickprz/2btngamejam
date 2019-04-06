@@ -5,19 +5,13 @@ using UnityEngine;
 public class ItemSpawnerController : MonoBehaviour
 {
     [SerializeField]
-    private GameObject[] Items;
+    private GameObject[] Items = { };
     [SerializeField]
-    private float YPositionMultiplier;
-    private float CurrentlyYPosition;
+    private float YPositionMultiplier = 0f;
+    private float CurrentlyYPosition = 6f;
     [SerializeField]
-    private float SpawnCooldown;
-    private float SpawnCooldownTimeLeft;
-    void Start()
-    {
-        CurrentlyYPosition = 6f;
-        SpawnCooldownTimeLeft = 0f;
-    }
-
+    private float SpawnCooldown = 0f;
+    private float SpawnCooldownTimeLeft = 0f;
 
     void Update()
     {

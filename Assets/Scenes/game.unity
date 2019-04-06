@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 1339887667}
   - component: {fileID: 1339887666}
   m_Layer: 0
-  m_Name: ItemSpawner
+  m_Name: ItemSpawnerController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,7 +223,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d0eb3632e1aec343bb4e7e208a29911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Items: []
+  Items:
+  - {fileID: 2484706121438029984, guid: f59775063f99ee14d99f548978210d71, type: 3}
+  - {fileID: 2484706121438029984, guid: 9e33809289605d345a3bcc234098fcd3, type: 3}
+  - {fileID: 2484706121438029984, guid: 956ebce036b671546bc7a95d0a17826b, type: 3}
   YPositionMultiplier: 3
   SpawnCooldown: 3
 --- !u!4 &1339887667

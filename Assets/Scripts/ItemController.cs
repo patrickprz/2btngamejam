@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemController : MonoBehaviour
 {
     [SerializeField]
-    private float TimeToDie;
+    private float TimeToDie = 3;
 
     void Start()
     {
