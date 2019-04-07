@@ -7,7 +7,8 @@ public class ItemSpawn : MonoBehaviour
     private string[] ItemNames = {//adicionar os nomes dos prefabs dos items para nascerem dentro do spawner
     "Item000",
     "Item001",
-    "Item002"
+    "Item002",
+    "Item003"
     };
 
     void Start()

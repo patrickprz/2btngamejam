@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameMasterController : MonoBehaviour
 {
@@ -9,7 +10,12 @@ public class GameMasterController : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI ScoreText;
     [HideInInspector]
-    public float TimeElapsed;
+    public float TimeElapsed = 0f;
+    [SerializeField]
+    private TextMeshProUGUI DeathScoreText;
+    [SerializeField]
+    private GameObject DeathPanel;
+    private bool isCounting = true;
 
     private void Awake()
     {
@@ -29,7 +35,34 @@ public class GameMasterController : MonoBehaviour
 
     void Update()
     {
-        TimeElapsed += Time.deltaTime;
-        ScoreText.text = TimeElapsed.ToString("N1");
+        if (isCounting)
+        {
+            TimeElapsed += Time.deltaTime;
+            ScoreText.text = TimeElapsed.ToString("N1");
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                SceneManager.LoadScene("game");
+            }
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+
+                SceneManager.LoadScene("mainMenu");
+            }
+        }
+    }
+
+    public void StopCounter()
+    {
+        isCounting = false;
+    }
+    public void ShowDeathPanel()
+    {
+        DeathPanel.SetActive(true);
+        DeathScoreText.text = ScoreText.text;
+        float.TryParse(ScoreText.text, out float res);
+        PlayerPrefs.SetFloat("score", res);
     }
 }

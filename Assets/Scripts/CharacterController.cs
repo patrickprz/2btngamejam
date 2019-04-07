@@ -6,8 +6,10 @@ public class CharacterController : MonoBehaviour
 {
     public static CharacterController Instance;
     public float Speed;
-    private bool isDead;
     private float lastDecimal = 0;
+    [SerializeField]
+    private GameObject FlipFlop;
+    private bool isAlive = true;
 
     #region Events
     private void Awake()
@@ -22,28 +24,22 @@ public class CharacterController : MonoBehaviour
     void Update()
     {
         Vector3 currentPos = transform.position;
-
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        Vector3 flipFlorCurrentPos = FlipFlop.transform.position;
+        if (isAlive)
         {
-            if (Mathf.RoundToInt(currentPos.x) < 2)
+            if (Input.GetKeyDown(KeyCode.RightArrow) && Mathf.RoundToInt(currentPos.x) < 2)
             {
-                transform.position = new Vector3(Mathf.RoundToInt(currentPos.x + 1),
-                                                 currentPos.y,
-                                                 currentPos.z);
+                transform.position = new Vector3(Mathf.RoundToInt(currentPos.x + 1), currentPos.y, currentPos.z);
+                FlipFlop.transform.position = new Vector3(Mathf.RoundToInt(flipFlorCurrentPos.x + 1), flipFlorCurrentPos.y, flipFlorCurrentPos.z);
             }
 
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            if (Mathf.RoundToInt(currentPos.x) > -2)
+            if (Input.GetKeyDown(KeyCode.LeftArrow) && Mathf.RoundToInt(currentPos.x) > -2)
             {
-                transform.position = new Vector3(Mathf.RoundToInt(currentPos.x - 1),
-                                                 currentPos.y,
-                                                 currentPos.z);
+                transform.position = new Vector3(Mathf.RoundToInt(currentPos.x - 1), currentPos.y, currentPos.z);
+                FlipFlop.transform.position = new Vector3(Mathf.RoundToInt(flipFlorCurrentPos.x - 1), flipFlorCurrentPos.y, flipFlorCurrentPos.z);
             }
+            Run();
         }
-        Run();
     }
     #endregion
 
@@ -51,9 +47,23 @@ public class CharacterController : MonoBehaviour
     {
         if (collider.CompareTag("Obstacle"))
         {
-            isDead = true;
-            print(isDead);
+            //acho que nao faz nada aqui porque ai vai travar a velocidade e o chinelo vai alcançar
+            //mas qualquer coisa da pra adicionar alguma penalidade aqui
         }
+        if (collider.CompareTag("flipflop"))
+        {
+            isAlive = false;
+            //tocar o som da batida com o chinelo
+            GameMasterController.Instance.StopCounter();
+
+        }
+        if (collider.CompareTag("hole"))
+        {
+            StartCoroutine(Holed());
+            //tocar a animação do buraco
+        }
+        if (!isAlive)
+            StartCoroutine(DeathPanel());
     }
 
     void Run()
@@ -65,6 +75,22 @@ public class CharacterController : MonoBehaviour
             Speed += 0.25f;
         }
         transform.Translate(new Vector3(0, 1, 0) * Speed * Time.deltaTime);
-        this.GetComponent<Animator>().speed = Speed;
+        GetComponent<Animator>().speed = Speed;
+
+        FlipFlop.transform.Translate(new Vector3(0, 1, 0) * Speed * Time.deltaTime);
+    }
+    IEnumerator DeathPanel()
+    {
+        yield return new WaitForSeconds(0.5f);
+        GameMasterController.Instance.ShowDeathPanel();
+    }
+    IEnumerator Holed()
+    {
+        yield return new WaitForSeconds(0.5f);
+        isAlive = false;
+        GameMasterController.Instance.StopCounter();
+        GetComponent<Animator>().SetTrigger("isHoled");
+        yield return new WaitForSeconds(0.4f);
+        GameMasterController.Instance.ShowDeathPanel();
     }
 }

@@ -10,22 +10,22 @@ PrefabInstance:
     - target: {fileID: 709008053636955793, guid: fe2725f41bc0bc147b3ab4212130b9bb,
         type: 3}
       propertyPath: m_Name
-      value: Item002
+      value: Item003
       objectReference: {fileID: 0}
     - target: {fileID: 709008053636955793, guid: fe2725f41bc0bc147b3ab4212130b9bb,
         type: 3}
       propertyPath: m_TagString
-      value: Obstacle
+      value: hole
       objectReference: {fileID: 0}
     - target: {fileID: 5321651685696208288, guid: fe2725f41bc0bc147b3ab4212130b9bb,
         type: 3}
       propertyPath: m_Size.x
-      value: 0.64
+      value: 0.55
       objectReference: {fileID: 0}
     - target: {fileID: 5321651685696208288, guid: fe2725f41bc0bc147b3ab4212130b9bb,
         type: 3}
       propertyPath: m_Size.y
-      value: 0.64
+      value: 0.16
       objectReference: {fileID: 0}
     - target: {fileID: 5321651685696208288, guid: fe2725f41bc0bc147b3ab4212130b9bb,
         type: 3}
@@ -37,11 +37,21 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 0.64
       objectReference: {fileID: 0}
+    - target: {fileID: 5321651685696208288, guid: fe2725f41bc0bc147b3ab4212130b9bb,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5321651685696208288, guid: fe2725f41bc0bc147b3ab4212130b9bb,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5907978023738943853, guid: fe2725f41bc0bc147b3ab4212130b9bb,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 4f763ee6bf80e154abe4c038def095b6,
+      objectReference: {fileID: 21300000, guid: 467d57dc08d9c4c4f84eaff2d75222f8,
         type: 3}
     - target: {fileID: 6713778046579361326, guid: fe2725f41bc0bc147b3ab4212130b9bb,
         type: 3}
