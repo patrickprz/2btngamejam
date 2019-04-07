@@ -165,7 +165,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 2
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -189,7 +189,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 80786956}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.4560003, z: -10}
+  m_LocalPosition: {x: 0, y: 1.2280002, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 717068161}
@@ -533,7 +533,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1848280593}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 4
+    OrthographicSize: 2
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -643,12 +643,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d0eb3632e1aec343bb4e7e208a29911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Items:
+  EasyItems:
   - {fileID: 2484706121438029984, guid: f59775063f99ee14d99f548978210d71, type: 3}
   - {fileID: 2484706121438029984, guid: 9e33809289605d345a3bcc234098fcd3, type: 3}
   - {fileID: 2484706121438029984, guid: 956ebce036b671546bc7a95d0a17826b, type: 3}
-  YPositionMultiplier: 3
-  SpawnCooldown: 0.75
+  EasyMedItems:
+  - {fileID: 2484706121438029984, guid: 3ee1e1ed8fc4bce4c8a0cb2574957002, type: 3}
+  - {fileID: 2484706121438029984, guid: 2262bc7675a56b8438bd4b6af919bff4, type: 3}
+  - {fileID: 2484706121438029984, guid: d91b276b9aceb054ca00f8d8100d252a, type: 3}
+  MedItems:
+  - {fileID: 2484706121438029984, guid: 32adf22ecd25a1c4fbeea4646f064a13, type: 3}
+  - {fileID: 2484706121438029984, guid: d15cacdaef7280e4194fc67af0b90454, type: 3}
+  - {fileID: 2484706121438029984, guid: 9052fa6ff002e3e42a65d177f8b964f4, type: 3}
+  - {fileID: 2484706121438029984, guid: a439c3c4854a8144a86e8bbfecd0a996, type: 3}
+  - {fileID: 2484706121438029984, guid: 2ced5567025d8534582b2b921366ebbe, type: 3}
+  - {fileID: 2484706121438029984, guid: c8908c090df96c94f88a13814d98c566, type: 3}
+  - {fileID: 2484706121438029984, guid: cb87fe0f93652f446a1a00f482ca7353, type: 3}
+  HardItems:
+  - {fileID: 2484706121438029984, guid: d0f986e2c926f0946bd67933d0593411, type: 3}
+  - {fileID: 2484706121438029984, guid: d78035db7f4830d42b62560e74bc2fcb, type: 3}
+  - {fileID: 2484706121438029984, guid: 7bc971bce83630647a6326e2653505e3, type: 3}
+  - {fileID: 2484706121438029984, guid: 00892e9a76c913c4880dc6d57aaa949f, type: 3}
+  - {fileID: 2484706121438029984, guid: a158d73f7208613459b0adba3cd64dcd, type: 3}
+  YPositionMultiplier: 3.5
+  SpawnCooldown: 1
 --- !u!4 &1339887667
 Transform:
   m_ObjectHideFlags: 0

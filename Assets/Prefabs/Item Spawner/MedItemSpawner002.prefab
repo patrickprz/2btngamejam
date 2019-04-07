@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 2430089021460531478, guid: 164b59fe20f9a4b48aecbe6bc203fc08,
         type: 3}
       propertyPath: m_Name
-      value: ItemSpawner000
+      value: MedItemSpawner002
       objectReference: {fileID: 0}
     - target: {fileID: 2430089021460531476, guid: 164b59fe20f9a4b48aecbe6bc203fc08,
         type: 3}
@@ -122,7 +122,17 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 842789371833533480, guid: 164b59fe20f9a4b48aecbe6bc203fc08,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2304063222161807128, guid: 164b59fe20f9a4b48aecbe6bc203fc08,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745160305043393818, guid: 164b59fe20f9a4b48aecbe6bc203fc08,
         type: 3}
       propertyPath: m_IsActive
       value: 0

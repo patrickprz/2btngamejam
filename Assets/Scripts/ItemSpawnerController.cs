@@ -5,7 +5,13 @@ using UnityEngine;
 public class ItemSpawnerController : MonoBehaviour
 {
     [SerializeField]
-    private GameObject[] Items = { };
+    private GameObject[] EasyItems = { };
+    [SerializeField]
+    private GameObject[] EasyMedItems = { };
+    [SerializeField]
+    private GameObject[] MedItems = { };
+    [SerializeField]
+    private GameObject[] HardItems = { };
     [SerializeField]
     private float YPositionMultiplier = 0f;
     private float CurrentlyYPosition = 3f;
@@ -30,9 +36,17 @@ public class ItemSpawnerController : MonoBehaviour
 
     public void SpawnItem()
     {
-        int randonRange = Random.Range(0, Items.Length);//vai o length mesmo porque o range com int é inclusivo para o inicial, mas exclusivo para o final
+        float score = GameMasterController.Instance.GetScore();
 
-        Instantiate(Items[randonRange], new Vector3(0f, CurrentlyYPosition, 0f), this.transform.rotation);
+        if (score < 6)
+            Instantiate(EasyItems[Random.Range(0, EasyItems.Length)], new Vector3(0f, CurrentlyYPosition, 0f), this.transform.rotation);
+        else if (score < 20)
+            Instantiate(EasyMedItems[Random.Range(0, EasyMedItems.Length)], new Vector3(0f, CurrentlyYPosition, 0f), this.transform.rotation);
+        else if (score < 40)
+            Instantiate(MedItems[Random.Range(0, MedItems.Length)], new Vector3(0f, CurrentlyYPosition, 0f), this.transform.rotation);
+        else
+            Instantiate(HardItems[Random.Range(0, HardItems.Length)], new Vector3(0f, CurrentlyYPosition, 0f), this.transform.rotation);
+
         CurrentlyYPosition += YPositionMultiplier;
 
     }

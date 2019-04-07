@@ -8,6 +8,7 @@ public class CharacterController : MonoBehaviour
     public float Speed;
     private bool isDead;
     private float lastDecimal = 0;
+
     #region Events
     private void Awake()
     {
@@ -30,6 +31,7 @@ public class CharacterController : MonoBehaviour
                                                  currentPos.y,
                                                  currentPos.z);
             }
+
         }
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))

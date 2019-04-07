@@ -15,6 +15,11 @@ public class GameMasterController : MonoBehaviour
     {
         Instance = this;
     }
+    public float GetScore()
+    {
+        float.TryParse(ScoreText.text, out float result);
+        return result;
+    }
 
     void Start()
     {
