@@ -9,6 +9,8 @@ public class GameMasterController : MonoBehaviour
     public static GameMasterController Instance;
     [SerializeField]
     private TextMeshProUGUI ScoreText;
+    [SerializeField]
+    private TextMeshProUGUI HighScoreText;
     [HideInInspector]
     public float TimeElapsed = 0f;
     [SerializeField]
@@ -33,6 +35,7 @@ public class GameMasterController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         ScoreText.text = "0";
+        StartTip.SetActive(true);
         StartCoroutine(ShowStartTip());
     }
 
@@ -67,11 +70,13 @@ public class GameMasterController : MonoBehaviour
         DeathScoreText.text = ScoreText.text;
 
         int highScore = PlayerPrefs.GetInt("highscore", 0);
+        HighScoreText.text = highScore.ToString("N0");
         int.TryParse(DeathScoreText.text, out int score);
         Debug.Log("high: " + highScore + "score: " + score);
         if (score > highScore)
         {
             PlayerPrefs.SetInt("highscore", score);
+            HighScoreText.text = score.ToString("N0");
         }
     }
     IEnumerator ShowStartTip()
