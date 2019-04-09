@@ -2,18 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MainMenuController : MonoBehaviour
 {
+    [SerializeField]
+    private TextMeshProUGUI HighScoreText;
+
     #region Events
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        HighScoreText.text = PlayerPrefs.GetInt("highscore", 0).ToString("N0");
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             Debug.Log("play");
             Play();

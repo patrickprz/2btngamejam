@@ -16,6 +16,8 @@ public class GameMasterController : MonoBehaviour
     [SerializeField]
     private GameObject DeathPanel;
     private bool isCounting = true;
+    [SerializeField]
+    private GameObject StartTip;
 
     private void Awake()
     {
@@ -31,6 +33,7 @@ public class GameMasterController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         ScoreText.text = "0";
+        StartCoroutine(ShowStartTip());
     }
 
     void Update()
@@ -62,7 +65,24 @@ public class GameMasterController : MonoBehaviour
     {
         DeathPanel.SetActive(true);
         DeathScoreText.text = ScoreText.text;
-        float.TryParse(ScoreText.text, out float res);
-        PlayerPrefs.SetFloat("score", res);
+
+        int highScore = PlayerPrefs.GetInt("highscore", 0);
+        int.TryParse(DeathScoreText.text, out int score);
+        Debug.Log("high: " + highScore + "score: " + score);
+        if (score > highScore)
+        {
+            PlayerPrefs.SetInt("highscore", score);
+        }
+    }
+    IEnumerator ShowStartTip()
+    {
+        Time.timeScale = 0.1f;
+        float pauseEndTime = Time.realtimeSinceStartup + 2.5f;
+        while (Time.realtimeSinceStartup < pauseEndTime)
+        {
+            yield return 0;
+        }
+        Time.timeScale = 1;
+        StartTip.SetActive(false);
     }
 }
