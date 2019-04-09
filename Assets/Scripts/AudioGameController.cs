@@ -22,7 +22,7 @@ public class AudioGameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int newDecimal = (int)(GameMasterController.Instance.TimeElapsed / 15f);
+        int newDecimal = (int)(GameMasterController.Instance.TimeElapsed / 40f);
         if (newDecimal > lastDecimal)
         {
             lastDecimal = newDecimal;
