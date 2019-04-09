@@ -30,13 +30,13 @@ public class CharacterController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.RightArrow) && Mathf.RoundToInt(currentPos.x) < 2)
             {
                 transform.position = new Vector3(Mathf.RoundToInt(currentPos.x + 1), currentPos.y, currentPos.z);
-                FlipFlop.transform.position = new Vector3(Mathf.RoundToInt(flipFlorCurrentPos.x + 1), flipFlorCurrentPos.y, flipFlorCurrentPos.z);
+                FlipFlop.transform.position = new Vector3(Mathf.RoundToInt(currentPos.x + 1), flipFlorCurrentPos.y, flipFlorCurrentPos.z);
             }
 
             if (Input.GetKeyDown(KeyCode.LeftArrow) && Mathf.RoundToInt(currentPos.x) > -2)
             {
                 transform.position = new Vector3(Mathf.RoundToInt(currentPos.x - 1), currentPos.y, currentPos.z);
-                FlipFlop.transform.position = new Vector3(Mathf.RoundToInt(flipFlorCurrentPos.x - 1), flipFlorCurrentPos.y, flipFlorCurrentPos.z);
+                FlipFlop.transform.position = new Vector3(Mathf.RoundToInt(currentPos.x - 1), flipFlorCurrentPos.y, flipFlorCurrentPos.z);
             }
             Run();
         }
@@ -59,11 +59,15 @@ public class CharacterController : MonoBehaviour
         }
         if (collider.CompareTag("hole"))
         {
+            isAlive = false;
             StartCoroutine(Holed());
             //tocar a animação do buraco
         }
         if (!isAlive)
+        {
+            AudioGameController.Instance.Music.Stop();
             StartCoroutine(DeathPanel());
+        }
     }
 
     void Run()
@@ -83,11 +87,11 @@ public class CharacterController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         GameMasterController.Instance.ShowDeathPanel();
+
     }
     IEnumerator Holed()
     {
         yield return new WaitForSeconds(0.5f);
-        isAlive = false;
         GameMasterController.Instance.StopCounter();
         GetComponent<Animator>().SetTrigger("isHoled");
         yield return new WaitForSeconds(0.4f);

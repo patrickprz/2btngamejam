@@ -38,7 +38,7 @@ public class GameMasterController : MonoBehaviour
         if (isCounting)
         {
             TimeElapsed += Time.deltaTime;
-            ScoreText.text = TimeElapsed.ToString("N1");
+            ScoreText.text = (TimeElapsed * 6).ToString("N0");
         }
         else
         {
