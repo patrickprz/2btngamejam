@@ -20,6 +20,7 @@ public class GameMasterController : MonoBehaviour
     private bool isCounting = true;
     [SerializeField]
     private GameObject StartTip;
+    private bool waitPause = false;
 
     private void Awake()
     {
@@ -48,6 +49,10 @@ public class GameMasterController : MonoBehaviour
         }
         else
         {
+            StartCoroutine(SetWaitPause());
+        }
+        if (waitPause)
+        {
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 SceneManager.LoadScene("game");
@@ -59,7 +64,11 @@ public class GameMasterController : MonoBehaviour
             }
         }
     }
-
+    IEnumerator SetWaitPause()
+    {
+        yield return new WaitForSeconds(1f);
+        waitPause = true;
+    }
     public void StopCounter()
     {
         isCounting = false;
