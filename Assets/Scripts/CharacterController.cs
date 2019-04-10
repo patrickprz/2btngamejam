@@ -10,7 +10,6 @@ public class CharacterController : MonoBehaviour
     [SerializeField]
     private GameObject FlipFlop;
     private bool isAlive = true;
-
     #region Events
     private void Awake()
     {
@@ -27,13 +26,13 @@ public class CharacterController : MonoBehaviour
         Vector3 flipFlorCurrentPos = FlipFlop.transform.position;
         if (isAlive)
         {
-            if (Input.GetKeyDown(KeyCode.RightArrow) && Mathf.RoundToInt(currentPos.x) < 2)
+            if (Input.GetKeyDown(KeyCode.RightArrow) && !RightCollider.Instance.isColliding && Mathf.RoundToInt(currentPos.x) < 2)
             {
                 transform.position = new Vector3(Mathf.RoundToInt(currentPos.x + 1), currentPos.y, currentPos.z);
                 FlipFlop.transform.position = new Vector3(Mathf.RoundToInt(currentPos.x + 1), flipFlorCurrentPos.y, flipFlorCurrentPos.z);
             }
 
-            if (Input.GetKeyDown(KeyCode.LeftArrow) && Mathf.RoundToInt(currentPos.x) > -2)
+            if (Input.GetKeyDown(KeyCode.LeftArrow) && !LeftCollider.Instance.isColliding && Mathf.RoundToInt(currentPos.x) > -2)
             {
                 transform.position = new Vector3(Mathf.RoundToInt(currentPos.x - 1), currentPos.y, currentPos.z);
                 FlipFlop.transform.position = new Vector3(Mathf.RoundToInt(currentPos.x - 1), flipFlorCurrentPos.y, flipFlorCurrentPos.z);
@@ -42,13 +41,11 @@ public class CharacterController : MonoBehaviour
         }
     }
     #endregion
-
     void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.CompareTag("Obstacle"))
         {
-            //acho que nao faz nada aqui porque ai vai travar a velocidade e o chinelo vai alcançar
-            //mas qualquer coisa da pra adicionar alguma penalidade aqui
+            //sem nada aqui
         }
         if (collider.CompareTag("flipflop"))
         {

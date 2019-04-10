@@ -12,7 +12,7 @@ public class MainMenuController : MonoBehaviour
     #region Events
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
         HighScoreText.text = PlayerPrefs.GetInt("highscore", 0).ToString("N0");
     }
 

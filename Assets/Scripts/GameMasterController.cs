@@ -34,7 +34,7 @@ public class GameMasterController : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        //    Cursor.lockState = CursorLockMode.Locked;
         ScoreText.text = "0";
         StartTip.SetActive(true);
         StartCoroutine(ShowStartTip());
