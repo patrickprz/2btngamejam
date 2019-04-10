@@ -5,17 +5,23 @@ using UnityEngine;
 public class AudioMenuController : MonoBehaviour
 {
     public static AudioMenuController Instance;
-    public AudioClip playAudio, ExitAudio;
+    private AudioSource Audio;
+    public AudioClip ClickSound;
 
     private void Awake(){
         Instance = this;
+        Audio = GetComponent<AudioSource>();
     }
 
-    public void PlayButtonSound(){
-        print("Play Song");
+    public void PlayClickSound(){
+        Audio.loop = false;
+        Audio.clip = ClickSound;
+        Audio.Play();
     }
 
-    public void ExitButtonSound(){
-        print("Exit Audio");
+    IEnumerator StopSound()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Audio.Stop();
     }
 }

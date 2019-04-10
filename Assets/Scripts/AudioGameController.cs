@@ -7,12 +7,15 @@ public class AudioGameController : MonoBehaviour
     // Start is called before the first frame update
 
     public static AudioGameController Instance;
-    public AudioSource Music;
+    private AudioSource Source;
+    public AudioClip Fall, FlipFlop;
     private float lastDecimal = 0;
+    private bool fallPlayed = false;
+    private bool flopPlayed = false;
 
     private void Awake(){
         Instance = this;
-        Music = GetComponent<AudioSource>();
+        Source = GetComponent<AudioSource>();
     }
 
     void Start()
@@ -26,7 +29,28 @@ public class AudioGameController : MonoBehaviour
         if (newDecimal > lastDecimal)
         {
             lastDecimal = newDecimal;
-            Music.pitch += 0.03f;
+            Source.pitch += 0.03f;
         }
     }
+
+    public void PlayFall(){
+        Source.loop = false;
+        
+        if (!fallPlayed){
+            Source.clip = Fall;
+            Source.Play();
+            fallPlayed = true;
+        }
+    }
+
+    public void PlayFlipFlop(){
+        Source.loop = false;
+
+        if (!flopPlayed){
+            Source.clip = FlipFlop;
+            Source.Play();
+            flopPlayed = true;
+        }
+    }
+
 }

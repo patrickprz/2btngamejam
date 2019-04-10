@@ -21,13 +21,29 @@ public class MainMenuController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             Debug.Log("play");
-            Play();
+            StartCoroutine(WaitToLoad());
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             Debug.Log("exit");
-            Exit();
+            StartCoroutine(WaitToExit());
         }
+    }
+    #endregion
+
+    #region Coroutines
+    IEnumerator WaitToLoad()
+    {
+        AudioMenuController.Instance.PlayClickSound();
+        yield return new WaitForSeconds(0.5f);
+        Play();
+    }
+
+    IEnumerator WaitToExit()
+    {
+        AudioMenuController.Instance.PlayClickSound();
+        yield return new WaitForSeconds(0.5f);
+        Exit();
     }
     #endregion
 

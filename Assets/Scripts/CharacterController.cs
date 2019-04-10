@@ -53,19 +53,20 @@ public class CharacterController : MonoBehaviour
         if (collider.CompareTag("flipflop"))
         {
             isAlive = false;
-            //tocar o som da batida com o chinelo
+            GetComponent<Animator>().speed = 0f;
             GameMasterController.Instance.StopCounter();
+            AudioGameController.Instance.PlayFlipFlop();
 
         }
         if (collider.CompareTag("hole"))
         {
             isAlive = false;
+            AudioGameController.Instance.PlayFall();
             StartCoroutine(Holed());
             //tocar a animação do buraco
         }
         if (!isAlive)
         {
-            AudioGameController.Instance.Music.Stop();
             StartCoroutine(DeathPanel());
         }
     }
@@ -87,7 +88,6 @@ public class CharacterController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         GameMasterController.Instance.ShowDeathPanel();
-
     }
     IEnumerator Holed()
     {
@@ -96,5 +96,6 @@ public class CharacterController : MonoBehaviour
         GetComponent<Animator>().SetTrigger("isHoled");
         yield return new WaitForSeconds(0.4f);
         GameMasterController.Instance.ShowDeathPanel();
+        Destroy(this);
     }
 }
