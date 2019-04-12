@@ -8,7 +8,9 @@ public class ItemSpawn : MonoBehaviour
     "Item000",
     "Item001",
     "Item002",
-    "Item003"
+    "Item003",
+    "Item004",
+    "Item005"
     };
 
     void Start()
