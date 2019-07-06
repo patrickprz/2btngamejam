@@ -22,6 +22,9 @@ public class GameMasterController : MonoBehaviour
     private GameObject StartTip;
     private bool waitPause = false;
 
+    public GameObject LeftButton;
+    public GameObject RightButton;
+
     private void Awake()
     {
         Instance = this;
@@ -59,11 +62,11 @@ public class GameMasterController : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-
                 SceneManager.LoadScene("mainMenu");
             }
         }
     }
+
     IEnumerator SetWaitPause()
     {
         yield return new WaitForSeconds(1f);
@@ -75,6 +78,8 @@ public class GameMasterController : MonoBehaviour
     }
     public void ShowDeathPanel()
     {
+        LeftButton.SetActive(false);
+        RightButton.SetActive(false);
         DeathPanel.SetActive(true);
         DeathScoreText.text = ScoreText.text;
 
@@ -98,5 +103,15 @@ public class GameMasterController : MonoBehaviour
         }
         Time.timeScale = 1;
         StartTip.SetActive(false);
+    }
+
+    public void ExitButton()
+    {
+        SceneManager.LoadScene("mainMenu");
+    }
+
+    public void RetryButton()
+    {
+        SceneManager.LoadScene("game");
     }
 }

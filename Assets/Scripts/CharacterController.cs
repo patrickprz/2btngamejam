@@ -11,6 +11,9 @@ public class CharacterController : MonoBehaviour
     private GameObject FlipFlop;
     private bool isAlive = true;
     #region Events
+
+    private Vector3 currentPos;
+    private Vector3 flipFlorCurrentPos;
     private void Awake()
     {
         Instance = this;
@@ -22,8 +25,8 @@ public class CharacterController : MonoBehaviour
 
     void Update()
     {
-        Vector3 currentPos = transform.position;
-        Vector3 flipFlorCurrentPos = FlipFlop.transform.position;
+        currentPos = transform.position;
+        flipFlorCurrentPos = FlipFlop.transform.position;
         if (isAlive)
         {
             if (Input.GetKeyDown(KeyCode.RightArrow) && !RightCollider.Instance.isColliding && Mathf.RoundToInt(currentPos.x) < 2)
@@ -41,6 +44,26 @@ public class CharacterController : MonoBehaviour
         }
     }
     #endregion
+
+    public void ButtonRight(){
+        if (isAlive){
+            if(!RightCollider.Instance.isColliding && Mathf.RoundToInt(currentPos.x) < 2)
+            {
+                transform.position = new Vector3(Mathf.RoundToInt(currentPos.x + 1), currentPos.y, currentPos.z);
+                FlipFlop.transform.position = new Vector3(Mathf.RoundToInt(currentPos.x + 1), flipFlorCurrentPos.y, flipFlorCurrentPos.z);
+            }
+        }
+    }
+
+    public void ButtonLeft(){
+        if (isAlive){
+            if (!LeftCollider.Instance.isColliding && Mathf.RoundToInt(currentPos.x) > -2)
+            {
+                transform.position = new Vector3(Mathf.RoundToInt(currentPos.x - 1), currentPos.y, currentPos.z);
+                FlipFlop.transform.position = new Vector3(Mathf.RoundToInt(currentPos.x - 1), flipFlorCurrentPos.y, flipFlorCurrentPos.z);
+            }
+        }
+    }
     void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.CompareTag("Obstacle"))

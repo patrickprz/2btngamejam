@@ -48,6 +48,17 @@ public class MainMenuController : MonoBehaviour
     #endregion
 
     #region Methods
+
+    public void ButtonPlay()
+    {
+        StartCoroutine(WaitToLoad());
+    }
+
+    public void ButtonExit()
+    {
+        StartCoroutine(WaitToExit());
+    }
+    
     public void Play()
     {
         SceneManager.LoadScene("game");
