@@ -2,7 +2,7 @@
 
 public class RightButtonEvent : EventTrigger
 {
-    public override void OnPointerClick(PointerEventData data)
+    public override void OnPointerDown(PointerEventData data)
     {
         CharacterController.Instance.ButtonRight();
     }

@@ -1888,18 +1888,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 755030006}
   m_CullTransparentMesh: 0
---- !u!114 &1017501289 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5086633487402789199, guid: 3ba2358e68b47c24f86cd4ef9934fa34,
-    type: 3}
-  m_PrefabInstance: {fileID: 1549721889}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdb8cf81cad11df408d5a4874c455fb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1217004555
 GameObject:
   m_ObjectHideFlags: 0
@@ -2607,11 +2595,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
-    - target: {fileID: 5086633487402789199, guid: 3ba2358e68b47c24f86cd4ef9934fa34,
-        type: 3}
-      propertyPath: FlipFlop
-      value: 
-      objectReference: {fileID: 1362192310}
     - target: {fileID: 5086633487402789194, guid: 3ba2358e68b47c24f86cd4ef9934fa34,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2667,6 +2650,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5086633487402789199, guid: 3ba2358e68b47c24f86cd4ef9934fa34,
+        type: 3}
+      propertyPath: FlipFlop
+      value: 
+      objectReference: {fileID: 1362192310}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ba2358e68b47c24f86cd4ef9934fa34, type: 3}
 --- !u!1 &1632508597
@@ -3231,18 +3219,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1859787236}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1017501289}
-        m_MethodName: ButtonLeft
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1859787236
